@@ -37,8 +37,6 @@ class TelegramWebhookController extends Controller
             return new Response();
         }
 
-        Log::debug('ddd');
-
         if ($this->handlePaymentRepository->hasEnterAddress($update->getChat()->get('id'))) {
             if ('message' !== $update->objectType() || !$update->getMessage()->get('text')) {
                 Telegram::sendMessage([
